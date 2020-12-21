@@ -27,10 +27,9 @@ $(document).ready(function () {
     });
 
     function getCurrLocation() {
-        // if (navigator.geolocation) {
-        //     navigator.geolocation.getCurrentPosition(success, error);
-        // }
-        navigator.geolocation.getCurrentPosition(success, error);
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success, error);
+        }
     }
 
     function success(position) {
