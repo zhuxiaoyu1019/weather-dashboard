@@ -1,0 +1,145 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+main {
+    position: relative;
+}
+
+#background-img {
+    position: absolute;
+    opacity: 0.7;
+    left: 0;
+    top: 0;
+    width: 1440px;
+    height: 521px;
+}
+
+.condition, #wind-speed {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 200px;
+}
+
+.scrolling-wrapper {
+    margin: 5px;
+    width: 100%;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap; 
+    overflow: auto;
+}
+
+.scrolling-wrapper::-webkit-scrollbar { 
+    display: none;
+}
+
+.card {
+    text-align: center;
+    width: 120px;
+    flex: 0 0 auto;
+    margin-right: 10px;
+}
+
+.forcast-title {
+    margin-bottom: 40px;
+}
+
+.featurette-divider {
+    margin-bottom: 15px;
+}
+
+#daily-forecast > .card {
+    margin: 0 10px;
+    width: 12%;
+    align-items: center;
+}
+
+.daily-temp-range {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 150px;
+    font-size: 20px;
+}
+
+.form-select {
+    border: none;
+    margin: 0 8px 0 0;
+    padding: 6px 10px 6px 0px;
+    width: 50px;
+}
+
+#background-container {
+    position: relative;
+}
+
+.star {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 95%;
+    color: #e9cb79;
+}
+
+.temp {
+    color: #FC5B5C;
+}
+
+.humidity {
+    color: #006994;
+}
+
+.wind-speed {
+    color: #3B8284;
+}
+
+.uv-index {
+    color: #ffcc33;
+}
+
+#city-name, h2 {
+    font-family: 'Dosis', sans-serif;
+}
+
+#city-name {
+    font-size: 4rem;
+}
+
+h2 {
+    font-style: italic;
+}
+
+#date, .col-lg-3 > h1, .time, .hourly-temp, .day, .daily-temp-range {
+    font-family: 'Thasadith', sans-serif;
+}
+
+#date {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+.time, .day {
+    margin-top: 10px;
+}
+
+.hourly-temp, .daily-temp-range {
+    font-weight: 700;
+}
+
+#weather-description, .col-lg-3 > p, .daily-description {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+#weather-description {
+    font-style: italic;
+}
