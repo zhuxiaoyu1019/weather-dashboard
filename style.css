@@ -21,7 +21,7 @@ main {
     opacity: 0.7;
     left: 0;
     top: 0;
-    width: 1440px;
+    width: 100vw;
     height: 521px;
 }
 
@@ -142,4 +142,8 @@ h2 {
 
 #weather-description {
     font-style: italic;
+}
+
+.hidden {
+    display: none;
 }

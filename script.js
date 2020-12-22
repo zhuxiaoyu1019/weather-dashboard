@@ -50,6 +50,7 @@ $(document).ready(function () {
 
     function error() {
         $("#city-name").text("Geolocation is not supported by this browser.");
+        $("#city-name").css("color", "grey");
     }
 
     function getData(city) {
@@ -98,6 +99,7 @@ $(document).ready(function () {
             var uvIndexQueryURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=5dc02834735d933b05d5b154458369e8`;
 
             $("#city-name").text(response.name);
+            $("#city-name").css("color", "white");
             $("#weather-icon").attr("src", `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`);
             $("#weather-icon").attr("alt", `${response.weather[0].description}`);
             $("#weather-description").text(response.weather[0].description);
@@ -142,6 +144,8 @@ $(document).ready(function () {
             var currTimeData = DateTime.local().setZone(`${response.timezone}`);
             var currTime = currTimeData.c.hour;
 
+            $("#hourly-forecast").removeClass("hidden");
+
             $("#date").text(currTimeData.c.year + "-" + currTimeData.c.month + "-" + currTimeData.c.day);
 
             $(".time").each(function () {
@@ -183,6 +187,8 @@ $(document).ready(function () {
             url: dailyForecastQueryURL,
             method: "GET"
         }).then(function (response) {
+            $("#daily-forecast").removeClass("hidden");
+
             $(".day").each(function (index) {
                 var nextDay = moment().add(index + 1, 'days').format().substring(0, 10);
                 $(this).text(nextDay);
