@@ -30,8 +30,8 @@ THEN I am presented with the last searched city forecast
 
 ## Mock-Up
 
-![weather dashboard demo](./Assets/06-server-side-apis-homework-demo.png)
+![weather dashboard demo](./Assets/weather-dashboard.png)
 
 ## Link to Deployed Application
 
-[Weather Dashboard]()
+[Weather Dashboard](https://zhuxiaoyu1019.github.io/weather-dashboard/)
