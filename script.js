@@ -3,22 +3,30 @@ $(document).ready(function () {
     var speedUnit;
     var list = JSON.parse(localStorage.getItem("tagged"));
 
+    //display current location weather dashboard when user come into the page
     getCurrLocation();
+
+    //list of tagged cities saved in the local storage
     displayTaggedCity();
 
+    //search city by keyword
     $("form").on("submit", function (e) {
         e.preventDefault();
         var city = $("input").val();
 
         getData(city);
+
+        //display star state after extracting data 
         setTimeout(isTag, 200);
     });
 
+    //toggle star to save city in the tagged list
     $(".star").on("click", function () {
         saveDashboard();
         displayTaggedCity();
     });
 
+    //display city in the tagged list
     $(".dropdown-item").on("click", function () {
         var tagCity = $(this).text();
 
@@ -26,14 +34,15 @@ $(document).ready(function () {
         setTimeout(isTag, 200);
     });
 
+    //cause the user's browser to ask them for permission to access their location data
     function getCurrLocation() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(success, error);
         }
     }
 
+    //if user grant permission, fetch and display data 
     function success(position) {
-        console.log(position);
         var currLat = position.coords.latitude;
         var currLon = position.coords.longitude;
         var currLocation = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${currLat}&longitude=${currLon}&localityLanguage=en`;
@@ -42,22 +51,24 @@ $(document).ready(function () {
             url: currLocation,
             method: "GET"
         }).then(function (response) {
-            console.log(response);
             var currCity = response.localityInfo.administrative[response.localityInfo.administrative.length - 1].name;
             getData(currCity);
         });
     }
 
+    //if user reject permission display error message
     function error() {
         $("#city-name").text("Geolocation is not supported by this browser.");
         $("#city-name").css("color", "grey");
     }
 
+    //display background image and wether inforamtion based on data input
     function getData(city) {
         fetchBackgroundImg(city);
         updateWeatherInfo(city);
     }
 
+    //fetch api to retrieve city image as page background
     function fetchBackgroundImg(city) {
         var cityPhotoURL = `https://pixabay.com/api/?key=19583748-194e84cf7389e34d110846517&q=${city} city&image_type=photo&pretty=true&min_width=1440&min_height=512`;
 
@@ -71,6 +82,7 @@ $(document).ready(function () {
         });
     }
 
+    //update temperature symbol and wind speed unit
     function mode() {
         var unit = $(".form-select").val();
         if (unit === "metric") {
@@ -86,6 +98,7 @@ $(document).ready(function () {
         return unit;
     }
 
+    //fetch api to retrieve city weather information and display on the page
     function updateWeatherInfo(city) {
         var unit = mode();
         var weatherQueryURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=5dc02834735d933b05d5b154458369e8`;
@@ -132,6 +145,7 @@ $(document).ready(function () {
         });
     }
 
+    //fetch api to retrieve city hourly forecast information and display on the page
     function hourlyForecast(lat, lon) {
         var unit = mode();
         var hourlyForecastQueryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${unit}&appid=5dc02834735d933b05d5b154458369e8`;
@@ -179,6 +193,7 @@ $(document).ready(function () {
         });
     }
 
+    //fetch api to retrieve city daily forecast information and display on the page
     function dailyForcast(lat, lon) {
         var unit = mode();
         var dailyForecastQueryURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${unit}&appid=5dc02834735d933b05d5b154458369e8`;
@@ -209,6 +224,7 @@ $(document).ready(function () {
         });
     }
 
+    //toggle the star to save or unsave current display city in the local storage
     function saveDashboard() {
         var state = $(".star").attr("data-state");
         var city = $("#city-name").text();
@@ -242,6 +258,7 @@ $(document).ready(function () {
         localStorage.setItem("tagged", JSON.stringify(list));
     }
 
+    //display saved city list store in the local storage
     function displayTaggedCity() {
         $(".dropdown-menu").contents().remove();
         var arr = JSON.parse(localStorage.getItem("tagged"));
@@ -252,6 +269,7 @@ $(document).ready(function () {
         });
     }
 
+    //check if the current display city saved in local storage and update star state accordingly
     function isTag() {
         if (localStorage.getItem("tagged") !== null) {
             var cityTitle = $("#city-name").text();
