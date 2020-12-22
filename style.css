@@ -6,14 +6,12 @@
     user-select: none;
 }
 
-@media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-    }
-}
-
 main {
     position: relative;
+}
+
+html {
+    overflow-y: scroll;
 }
 
 #background-img {
@@ -49,6 +47,10 @@ main {
     width: 120px;
     flex: 0 0 auto;
     margin-right: 10px;
+}
+
+#daily-forecast > .card {
+    min-width: 140px;
 }
 
 .forcast-title {
@@ -106,7 +108,11 @@ main {
     color: #ffcc33;
 }
 
-#city-name, h2 {
+.humid-info {
+    margin-left: 18px;
+}
+
+#city-name, h2, .navbar-brand {
     font-family: 'Dosis', sans-serif;
 }
 
@@ -135,7 +141,7 @@ h2 {
     font-weight: 700;
 }
 
-#weather-description, .col-lg-3 > p, .daily-description {
+#weather-description, .col-lg-3 > p, .daily-description, nav {
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
 }
@@ -146,4 +152,145 @@ h2 {
 
 .hidden {
     display: none;
+}
+
+@media (max-width: 1399px) {
+    .detail {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 1199px) {
+    #wind-speed-info, #uv-index-info, #humid-info {
+        margin-left: 20px;
+    }
+
+    .info > h1  {
+        font-size: 2.3rem;
+    }
+
+    .uv {
+        padding-left: 70px;
+    }
+}
+
+@media (max-width: 992px) {
+    .row > .col-lg-3 {
+        width: 25%;
+        text-align: center;
+    }
+
+    .info {
+        margin-top: 10px;
+    }
+
+    #temp-info {
+        margin-left: 28px;
+    }
+
+    #humid-info {
+        margin-left: 43px;
+    }
+
+    #wind-speed-info {
+        margin-left: 10px;
+    }
+
+    #uv-index-info {
+        margin-left: 5px;
+    }
+
+    #uv-index-info h1 {
+        margin-left: 65px;
+    }
+
+    .uv {
+        padding-left: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+
+    #temp-info {
+        margin-left: 10px;
+    }
+
+    #temp-info h1 {
+        margin-left: 7px;
+    }
+
+    #humid-info {
+        margin-left: 25px;
+    }
+
+    #uv-index-info h1 {
+        margin-left: 70px;
+    }
+
+    .star {
+        margin-left: 94%;
+    }
+
+    .dropdown-menu {
+        background: #212529;
+        border: none;
+        width: 15%;
+    }
+
+    .dropdown-menu li a {
+        color: white;
+    }
+
+    .dropdown-menu li {
+        display: inline;
+    }
+}
+
+@media (max-width: 639px) {
+    body {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .star {
+        margin-left: 93%;
+    }
+}
+
+@media (max-width: 400px) {
+    nav {
+        width: 100vw;
+    }
+
+    body {
+        overflow-x: hidden;
+        white-space: nowrap;
+    }
+
+    .row > .col-lg-3 {
+        font-size: 0.75rem;
+    }
+
+    .info > h1 {
+        font-size: 25px;
+    }
+
+    #humid-info {
+        margin-left: 8px;;
+    }
+
+    #uv-index-info h1 {
+        margin-left: 77px;
+    }
+
+    .uv {
+        padding-left: 0;
+    }
+
+    .star {
+        margin-left: 89%;
+    }
 }

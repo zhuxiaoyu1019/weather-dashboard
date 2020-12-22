@@ -22,6 +22,9 @@
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <section class="container-fluid">
                 <a class="navbar-brand" href="#">Weather Dashboard</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
                 <section class="collapse navbar-collapse" id="navbarCollapse">
                     <section class="navbar-nav me-auto mb-2 mb-md-0">
                         <section class="dropdown">
@@ -70,13 +73,13 @@
         </section>
 
         <section class="container">
-            <section class="row d-flex justify-content-center">
+            <section class="row d-flex">
                 <section class="col-lg-3 d-flex justify-content-center">
                     <section class="row">
                         <section class="col-lg-4">
                             <i class="fas fa-thermometer-half fa-5x temp"></i>
                         </section>
-                        <section class="col-lg-3">
+                        <section class="col-lg-3 info" id="temp-info">
                             <h1 id="temp"></h1>
                             <p>Temperature</p>
                         </section>
@@ -85,10 +88,10 @@
 
                 <section class="col-lg-3 d-flex justify-content-center">
                     <section class="row">
-                        <section class="col-lg-6">
+                        <section class="col-lg-4">
                             <i class="fas fa-tint fa-5x humidity"></i>
                         </section>
-                        <section class="col-lg-3">
+                        <section class="col-lg-3 info" id="humid-info">
                             <h1 id="humidity"></h1>
                             <p>Humidity</p>
                         </section>
@@ -100,19 +103,19 @@
                         <section class="col-lg-4">
                             <i class="fas fa-wind fa-5x wind-speed"></i>
                         </section>
-                        <section class="col-lg-3">
+                        <section class="col-lg-3 info" id="wind-speed-info">
                             <h1 id="wind-speed"></h1>
                             <p class="condition">Wind Speed</p>
                         </section>
                     </section>
                 </section>
 
-                <section class="col-lg-3 d-flex justify-content-center">
+                <section class="col-lg-3 d-flex justify-content-center uv">
                     <section class="row">
                         <section class="col-lg-4">
                             <i class="fas fa-sun fa-5x uv-index"></i>
                         </section>
-                        <section class="col-lg-3">
+                        <section class="col-lg-3 info" id="uv-index-info">
                             <h1 id="uv-index"></h1>
                             <p class="condition">UV Index</p>
                         </section>
@@ -194,7 +197,7 @@
             <hr class="featurette-divider">
 
             <h2 class="forcast-title">7 Days</h2>
-            <section class="row featurette justify-content-center hidden" id="daily-forecast">
+            <section class="row featurette scrolling-wrapper hidden" id="daily-forecast">
                 <section class="col-lg-1 card">
                     <p class="day"></p>
                     <img class="daily-icon" />
