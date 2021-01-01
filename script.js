@@ -27,7 +27,8 @@ $(document).ready(function () {
     });
 
     //display city in the tagged list
-    $(".dropdown-item").on("click", function () {
+    $(document).on("click", ".dropdown-item", function (e) {
+        e.preventDefault();
         var tagCity = $(this).text();
 
         getData(tagCity);
@@ -43,6 +44,7 @@ $(document).ready(function () {
 
     //if user grant permission, fetch and display data 
     function success(position) {
+        setTimeout(isTag, 500);
         var currLat = position.coords.latitude;
         var currLon = position.coords.longitude;
         var currLocation = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${currLat}&longitude=${currLon}&localityLanguage=en`;
