@@ -28,6 +28,13 @@ WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 ```
 
+**Technologies Used**
+
+```
+ JQuery, HTML, and CSS on top of the Bootstrap framework
+ 
+ ```
+
 ## Mock-Up
 
 ![weather dashboard demo](./Assets/weather-dashboard.png)
